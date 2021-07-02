@@ -127,10 +127,10 @@ local function prompt_user(headline, body, callback)
     if line_length > longest_line then longest_line = line_length end
   end
 
-  local width = math.min(longest_line + 2, math.floor(0.9 * vim.o.columns))
+  local width = math.min(longest_line + 2, math.floor(0.9 * vim.opt.columns))
   local height = #body + 3
-  local x = (vim.o.columns - width) / 2.0
-  local y = (vim.o.lines - height) / 2.0
+  local x = (vim.opt.columns - width) / 2.0
+  local y = (vim.opt.lines - height) / 2.0
   local pad_width = math.max(math.floor((width - string.len(headline)) / 2.0), 0)
   api.nvim_buf_set_lines(buf, 0, -1, true, vim.list_extend(
                            {
